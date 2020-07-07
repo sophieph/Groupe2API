@@ -11,7 +11,7 @@ def hello():
 
 @app.route('/pokemon')
 def pokemon():
-    r = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=100&offset=20')
+    r = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
 
     list = r.json()
     return render_template('pokemon.html', list=list)
