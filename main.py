@@ -11,10 +11,14 @@ def hello():
 
 @app.route('/pokemon')
 def pokemon():
-    r = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
+    # Liste des 151 premiers pokemon
+    try:
+        r_pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
 
-    list = r.json()
-    return render_template('pokemon.html', list=list)
+    list_pokemon = r_pokemon.json()
+    return render_template('pokemon.html', list=list_pokemon)
     
 if __name__ == "__main__":
     app.run(debug=True)
