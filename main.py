@@ -9,6 +9,7 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
+#Affiche la liste des 151 premiers Pokemon
 @app.route('/pokemon')
 def pokemon():
     # Liste des 151 premiers pokemon
@@ -20,6 +21,19 @@ def pokemon():
     list_pokemon = r_pokemon.json()
     return render_template('pokemon.html', list=list_pokemon)
     
+# Affiche la description du pokemon    
+@app.route('/pokemon/<name>')
+def pokemon_by_name(name):
+    url = 'https://pokeapi.co/api/v2/pokemon/' + name
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    return render_template('pokemon_description.html', pokemon=pokemon, name=name)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 

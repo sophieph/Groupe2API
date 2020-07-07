@@ -7,7 +7,7 @@
 
     {% for pokemon in list['results'] %}
     <li>
-        {{ pokemon.name }} 
+        <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}">{{ pokemon.name }}</a>
     </li>
     {% endfor %}
 
