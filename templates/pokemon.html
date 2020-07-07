@@ -3,11 +3,12 @@
 
 <h1>Liste des pokémons</h1>
 
-{{list}}
 <ul>
 
     {% for pokemon in list['results'] %}
-    <li>{{ pokemon.name }} </li>
+    <li>
+        {{ pokemon.name }} 
+    </li>
     {% endfor %}
 
 </ul>
