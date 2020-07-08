@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='',
             template_folder='web/templates')
 
 @app.route('/')
-def hello():
+def mainpage():
     return render_template('index.html')
 
 #Affiche la liste des 151 premiers Pokemon
@@ -37,9 +37,6 @@ def get_image_pokemon(name):
     pokemon = r_pokemon.json()
     return pokemon
 
-
-
-
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
 def pokemon_by_name(name):
@@ -51,6 +48,37 @@ def pokemon_by_name(name):
 
     pokemon = r_pokemon.json()
     return render_template('pokemon_description.html', pokemon=pokemon, name=name)
+
+# Affiche le comparatif entre pokémon
+@app.route('/comparatif')
+def compare_pokemon():
+    url = 'https://pokeapi.co/api/v2/pokemon/?limit=151'
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+    
+    pokemon = r_pokemon.json()
+    pokemon = pokemon['results']
+    return render_template('comparatif.html', pokemon_list=pokemon)
+
+# Affiche le classement des pokémons selon leur stat
+@app.route('/classement')
+def classement_pokemon():
+
+    return render_template('classement.html')
+
+# Fontion qui retourne le pokemon
+@app.route('/pokemon/details/<name>')
+def pokemon_details():
+    url = 'https://pokeapi.co/api/v2/pokemon/' + name
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    return pokemon
 
 
 if __name__ == "__main__":
