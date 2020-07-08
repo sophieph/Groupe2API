@@ -5,6 +5,7 @@
 
 <div class="row">
     <div class="col-6">
+
             <label for="pokemon-select-1">Choisissez un pokémon :</label>
             <select class="form-control" name="pokemon-1" id="pokemon-select-1">
                 <option value="-" selected="selected">-</option>
@@ -26,7 +27,7 @@
             <option value="{{ pokemon.name }}">{{pokemon.name}}</option>
             {% endfor %}
             
-        </select>   
+        </select>
         
         <div class="classement">
 
@@ -36,6 +37,5 @@
 </div>
 
 
-<script src="/js/comparatif.js"></script>
 
 {% endblock %}
