@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+{{ super() }}
+<h1>Comparatif des pokémons</h1>
+
+<!-- {% for pokemon in pokemon %} -->
+{{ pokemon_list }}
+
+<select name ="comparatif_pokemon">
+    <option value=" ">Ceci est un test</option>
+    <option value=" ">Ceci est un deuxième test</option>
+</select>
+<!-- {% endfor %} -->
+
+
+{% endblock %}
