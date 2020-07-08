@@ -1,17 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
 {{ super() }}
-<h1>Liste des pokémons</h1>
+<div class="row">
+    <div class="col-12">
 
-<h3 id="name_pokemon"></h3>
+        <h1>Liste des pokémons</h1>
 
-<ul>
-    {% for pokemon in pokemon %}
-    <li id="{{ pokemon.name }}" class="pokemon" >
-        <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}"  class="{{ pokemon.name }}" alt="{{ pokemon.name }}"></a>
-    </li>
-    {% endfor %}
-</ul>
+        <h3 id="name_pokemon"></h3>
+
+        <ul>
+            {% for pokemon in pokemon %}
+            <li id="{{ pokemon.name }}" class="pokemon">
+                <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}" class="{{ pokemon.name }}"
+                    alt="{{ pokemon.name }}"></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
 <script src="/js/image.js"></script>
 

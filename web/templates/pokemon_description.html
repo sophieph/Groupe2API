@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Pokemon : {{ pokemon.name }} </h1>
+<div class="row">
+    <div class="col-12">
+        <h1>Pokemon : {{ pokemon.name }} </h1>
 
+        <img src="{{ pokemon.sprites.front_default}}" alt="">
+        <img src="https://pokeres.bastionbot.org/images/pokemon/{{ pokemon.id }}.png" alt="">
 
-<img src="{{ pokemon.sprites.front_default}}" alt="">
-<img src="https://pokeres.bastionbot.org/images/pokemon/{{ pokemon.id }}.png" alt="">
-
+    </div>
+</div>
 {% endblock %}
