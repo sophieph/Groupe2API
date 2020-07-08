@@ -4,15 +4,13 @@
 <h1>Liste des pokémons</h1>
 
 <ul>
-
     {% for pokemon in pokemon %}
     <li id="{{ pokemon.name }}" >
         <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}" class="{{ pokemon.name }}" ></a>
     </li>
     {% endfor %}
-
 </ul>
 
-
+<script src="/js/image.js"></script>
 
 {% endblock %}
