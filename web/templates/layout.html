@@ -9,39 +9,48 @@
 </head>
 
 <body>
-
-        <header>
-            <h1>Pokedex</h1>
-            <nav class="menu">
-                <ul>
-                    <li><a href="{{ url_for('mainpage') }}"><strong>Accueil</strong></a></li>
-                    <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
-                    <li><a href="{{ url_for('compare_pokemon') }}">Comparatif</a></li>
-                    <li><a href="{{ url_for('classement_pokemon') }}">Classement</a></li>
-
-                </ul>
-            </nav>
-
-            <form action="" method="post">
-                <a>Rechercher : </a>
-                <input type="text" name="search" size="30">
-                <input type="submit" id="loupe" value="" name="envoi">
-
-            </form>
-
-        </header>
-
     <div class="container text-center">
-        {% block content %}{% endblock %}
-    </div>
 
-    <footer>
-        <p> Fait par Sophie Nassim Alou </p>
-        <p>Contact github <a href="https://github.com/sophieph/Groupe2API">
-                https://github.com/sophieph/Groupe2API
-            </a>.</p>
-        <p>© 2020 Copyright</p>
-    </footer>
+        <div class="row">
+            <div class="col-12">
+                <header>
+                    <h1>Pokedex</h1>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="{{ url_for('mainpage') }}"><strong>Accueil</strong></a></li>
+                            <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
+                            <li><a href="{{ url_for('compare_pokemon') }}">Comparatif</a></li>
+                            <li><a href="{{ url_for('classement_pokemon') }}">Classement</a></li>
+
+                        </ul>
+                    </nav>
+
+                    <form action="" method="post">
+                        <a>Rechercher : </a>
+                        <input type="text" name="search" size="30">
+                        <input type="submit" id="loupe" value="" name="envoi">
+
+                    </form>
+
+                </header>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        <div class="row">
+            <div class="col-12">
+                <footer>
+                    <p> Fait par Sophie Nassim Alou </p>
+                    <p>Contact github <a href="https://github.com/sophieph/Groupe2API">
+                            https://github.com/sophieph/Groupe2API
+                        </a>.</p>
+                    <p>© 2020 Copyright</p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="/js/image.js"></script>
