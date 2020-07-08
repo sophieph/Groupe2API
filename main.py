@@ -37,9 +37,6 @@ def get_image_pokemon(name):
     pokemon = r_pokemon.json()
     return pokemon
 
-
-
-
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
 def pokemon_by_name(name):
@@ -62,6 +59,7 @@ def compare_pokemon():
         raise SystemExit(e)
     
     pokemon = r_pokemon.json()
+    pokemon = pokemon['results']
     return render_template('comparatif.html', pokemon_list=pokemon)
 
 # Affiche le classement des pokémons selon leur stat
@@ -69,6 +67,19 @@ def compare_pokemon():
 def classement_pokemon():
 
     return render_template('classement.html')
+
+# Fontion qui retourne le pokemon
+@app.route('/pokemon/details/<name>')
+def pokemon_details():
+    url = 'https://pokeapi.co/api/v2/pokemon/' + name
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    return pokemon
+
 
 if __name__ == "__main__":
     app.run(debug=True)
