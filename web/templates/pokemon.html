@@ -7,7 +7,7 @@
 
     {% for pokemon in pokemon %}
     <li id="{{ pokemon.name }}" >
-        <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}">{{ pokemon.name }}</a>
+        <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}" class="{{ pokemon.name }}" ></a>
     </li>
     {% endfor %}
 

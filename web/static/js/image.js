@@ -1,4 +1,3 @@
-console.log('ok')
 
 $('ul li').each(function(i)
 {
@@ -8,7 +7,8 @@ $('ul li').each(function(i)
         type : "POST",
         dataType : 'json',
         success : function(data) {
-            console.log(data)
+                name = data.name
+                $('.' + name).append('<img src="' + data.sprites.front_default + '" alt="Image ' + name + '">');
         },
         error : function() {
             console.log("ERREUR")
