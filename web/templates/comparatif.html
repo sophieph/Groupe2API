@@ -3,14 +3,21 @@
 {{ super() }}
 <h1>Comparatif des pokémons</h1>
 
-<!-- {% for pokemon in pokemon %} -->
-{{ pokemon_list }}
+<!-- {{ pokemon_list }} -->
 
 <select name ="comparatif_pokemon">
-    <option value=" ">Ceci est un test</option>
-    <option value=" ">Ceci est un deuxième test</option>
+    {% for pokemon in pokemon_list %}
+    {{ pokemon.name }}
+    <option value=" ">{{pokemon.name}}</option>
+    {% endfor %}
 </select>
-<!-- {% endfor %} -->
+
+<select name ="comparatif_pokemon">
+    {% for pokemon in pokemon_list %}
+    {{ pokemon.name }}
+    <option value=" ">{{pokemon.name}}</option>
+    {% endfor %}
+</select>
 
 
 {% endblock %}

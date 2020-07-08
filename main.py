@@ -55,13 +55,14 @@ def pokemon_by_name(name):
 # Affiche le comparatif entre pokémon
 @app.route('/comparatif')
 def compare_pokemon():
-    url = 'https://pokeapi.co/api/v2/pokemon/'
+    url = 'https://pokeapi.co/api/v2/pokemon/?limit=151'
     try:
         r_pokemon = requests.get(url)
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
     
     pokemon = r_pokemon.json()
+    pokemon = pokemon['results']
     return render_template('comparatif.html', pokemon_list=pokemon)
 
 # Affiche le classement des pokémons selon leur stat
