@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='',
             template_folder='web/templates')
 
 @app.route('/')
-def hello():
+def mainpage():
     return render_template('index.html')
 
 #Affiche la liste des 151 premiers Pokemon

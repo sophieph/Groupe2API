@@ -14,7 +14,7 @@
             <h1>Pokedex</h1>
             <nav class="menu">
                 <ul>
-                    <li><a href=""><strong>Accueil</strong></a></li>
+                    <li><a href="{{ url_for('mainpage') }}"><strong>Accueil</strong></a></li>
                     <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
                     <li><a href="{{ url_for('compare_pokemon') }}">Comparatif</a></li>
                     <li><a href="{{ url_for('classement_pokemon') }}">Classement</a></li>

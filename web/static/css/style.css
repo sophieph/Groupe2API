@@ -33,7 +33,7 @@ header .menu ul li a {
 }
 
 header  {
-    background-image: url(img/pokeball.png);
+    background-image: url(../img/pokeball.png);
     background-color: transparent;
     width: 600px;
     height: 25px;
@@ -49,4 +49,19 @@ footer {
     text-align:center;
 }
 
+
+ul li img {
+    display: block;
+    width: 100%;
+
+}
+
+
+
+ul li {
+    width:calc(100% / 9) ;
+    float: left;
+
+    list-style-type:none;
+}
 
