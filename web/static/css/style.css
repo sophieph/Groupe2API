@@ -33,7 +33,7 @@ header .menu ul li a {
 }
 
 header  {
-    background-image: url(img/pokeball.png);
+    background-image: url(../img/pokeball.png);
     background-color: transparent;
     width: 600px;
     height: 25px;
