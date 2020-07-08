@@ -8,6 +8,10 @@
     padding: 1.0rem 0 0 1.0rem;
 }
 
+.classement img {
+    width:300px;
+}
+
 body {
     background-color: yellow!important;
     font-size: 3em;
