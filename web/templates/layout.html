@@ -1,50 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="shortcut icon" href="https://pokemonbrowser.com/favicon.ico">
-    </head>
 
-    <body>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://pokemonbrowser.com/favicon.ico">
+</head>
 
-        <header>
-            <nav class="menu">
-                <ul>
-                    <li><a href=""><strong>Acceuil</strong></a></li>
-                    <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
-                   
-                    <li><a href="">Comparatif</a></li>
-                    <li><a href="">Classement</a></li>
-                    
-                   
-                </ul>
-            </nav>
-        
-                <form action="" method="post">
-                    <a>Rechercher : </a>
-                    <input type="text" name="search" size="30">
-                    <input type="submit" id="loupe" value="" name="envoi">
+<body>
+    <div class="container text-center">
 
-                </form>
-            
-        </header>
+        <div class="row">
+            <div class="col-12">
+                <header>
+                    <h1>Pokedex</h1>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="{{ url_for('mainpage') }}"><strong>Accueil</strong></a></li>
+                            <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
+                            <li><a href="{{ url_for('compare_pokemon') }}">Comparatif</a></li>
+                            <li><a href="{{ url_for('classement_pokemon') }}">Classement</a></li>
+
+                        </ul>
+                    </nav>
+
+                    <form action="" method="post">
+                        <a>Rechercher : </a>
+                        <input type="text" name="search" size="30">
+                        <input type="submit" id="loupe" value="" name="envoi">
+
+                    </form>
+
+                </header>
+            </div>
+        </div>
+
         {% block content %}{% endblock %}
 
-        <h1>Pokedex</h1>
-        
+        <div class="row">
+            <div class="col-12">
+                <footer>
+                    <p> Fait par Sophie Nassim Alou </p>
+                    <p>Contact github <a href="https://github.com/sophieph/Groupe2API">
+                            https://github.com/sophieph/Groupe2API
+                        </a>.</p>
+                    <p>© 2020 Copyright</p>
+                </footer>
+            </div>
+        </div>
 
-        <footer>
-            <p> Fait par Sophie Nassim Alou /p>
-            <p>Contact github <a href="https://github.com/sophieph/Groupe2API">
-                https://github.com/sophieph/Groupe2API
-            </a>.</p>
-            <p>© 2020 Copyright</p>
-        </footer>
-        
+    </div>
 
-        <script type="text/javascript" src="/js/jquery.min.js"></script>
-        <script src="/js/image.js"></script>
-
-    </body>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script src="/js/image.js"></script>
+</body>
 
 </html>
