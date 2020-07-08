@@ -25,6 +25,21 @@ def pokemon():
 
     return render_template('pokemon.html', pokemon=pokemon)
     
+#Affiche les images de la liste avec la methode AJAX
+@app.route('/pokemon/image/<name>', methods=["POST"])
+def get_image_pokemon(name):
+    url = 'https://pokeapi.co/api/v2/pokemon/' + name
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    return pokemon
+
+
+
+
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
 def pokemon_by_name(name):
