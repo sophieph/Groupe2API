@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="shortcut icon" href="https://pokemonbrowser.com/favicon.ico">
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="menu">
+                <ul>
+                    <li><a href=""><strong>Acceuil</strong></a></li>
+                    <li><a href="{{ url_for('pokemon') }}">Pokemon</a></li>
+                   
+                    <li><a href="">Comparatif</a></li>
+                    <li><a href="">Classement</a></li>
+                    
+                   
+                </ul>
+            </nav>
+        
+                <form action="" method="post">
+                    <a>Rechercher : </a>
+                    <input type="text" name="search" size="30">
+                    <input type="submit" id="loupe" value="" name="envoi">
+
+                </form>
+            
+        </header>
+        {% block content %}{% endblock %}
+
+        <h1>Pokedex</h1>
+        
+
+        <footer>
+            <p> Fait par Sophie Nassim Alou /p>
+            <p>Contact github <a href="https://github.com/sophieph/Groupe2API">
+                https://github.com/sophieph/Groupe2API
+            </a>.</p>
+            <p>© 2020 Copyright</p>
+        </footer>
+        
+
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script src="/js/image.js"></script>
+
+    </body>
+
+</html>
