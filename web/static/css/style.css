@@ -50,3 +50,18 @@ footer {
 }
 
 
+ul li img {
+    display: block;
+    width: 100%;
+
+}
+
+
+
+ul li {
+    width:calc(100% / 9) ;
+    float: left;
+
+    list-style-type:none;
+}
+
