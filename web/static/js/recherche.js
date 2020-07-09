@@ -11,12 +11,13 @@ btnSubmit.click(function (e) {
         type: "POST",
         dataType: 'json',
         success: function (data) {
-            console.log("type : " + typeof(data));
-            name = data.name;
-            window.location.replace("/pokemon/" + name);
             if (empty(data)) {
                 window.location.replace("/no_pokemon");
             }
+            console.log("type : " + typeof(data));
+            name = data.name;
+            window.location.replace("/pokemon/" + name);
+            
 
         },
         error: function () {
