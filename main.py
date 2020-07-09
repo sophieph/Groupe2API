@@ -19,6 +19,7 @@ def pokemon():
         r_pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
+        return page_not_found(e)
 
     list_pokemon = r_pokemon.json()
     pokemon = list_pokemon['results']
@@ -68,6 +69,11 @@ def get_details_pokemon(name):
 
     pokemon = r_pokemon.json()
     return pokemon
+
+# Page d'erreur
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
