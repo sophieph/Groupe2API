@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask
 from flask import render_template
 import requests
@@ -8,7 +10,7 @@ app = Flask(__name__, static_url_path='',
             template_folder='web/templates')
 
 @app.route('/')
-def hello():
+def mainpage():
     return render_template('index.html')
 
 #Affiche la liste des 151 premiers Pokemon
@@ -25,21 +27,6 @@ def pokemon():
 
     return render_template('pokemon.html', pokemon=pokemon)
     
-#Affiche les images de la liste avec la methode AJAX
-@app.route('/pokemon/image/<name>', methods=["POST"])
-def get_image_pokemon(name):
-    url = 'https://pokeapi.co/api/v2/pokemon/' + name
-    try:
-        r_pokemon = requests.get(url)
-    except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
-
-    pokemon = r_pokemon.json()
-    return pokemon
-
-
-
-
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
 def pokemon_by_name(name):
@@ -50,7 +37,18 @@ def pokemon_by_name(name):
         raise SystemExit(e)
 
     pokemon = r_pokemon.json()
-    return render_template('pokemon_description.html', pokemon=pokemon, name=name)
+
+    url_description = 'https://pokeapi.co/api/v2/pokemon-species/' + name
+    try:
+        r_pokemon_description = requests.get(url_description)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    pokemon_description = r_pokemon_description.json()
+    pokemon_description = pokemon_description
+
+    return render_template('pokemon_description.html', pokemon=pokemon, pokemon_description=pokemon_description, name=name)
 
 # Affiche le comparatif entre pokémon
 @app.route('/comparatif')
@@ -70,6 +68,19 @@ def compare_pokemon():
 def classement_pokemon():
 
     return render_template('classement.html')
+
+# Retourne l'API du pokemon avec la methode AJAX
+@app.route('/pokemon/details/<name>', methods=["POST"])
+def get_details_pokemon(name):
+    url = 'https://pokeapi.co/api/v2/pokemon/' + name
+    try:
+        r_pokemon = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
+    pokemon = r_pokemon.json()
+    return pokemon
+
 
 if __name__ == "__main__":
     app.run(debug=True)
