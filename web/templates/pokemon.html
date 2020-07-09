@@ -13,6 +13,7 @@
             <li id="{{ pokemon.name }}" class="pokemon">
                 <a href="{{ url_for('pokemon_by_name', name=pokemon.name) }}" class="{{ pokemon.name }}"
                     alt="{{ pokemon.name }}"></a>
+                <p class="poke">{{ pokemon.name }}</p>    
             </li>
             {% endfor %}
         </ul>
