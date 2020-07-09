@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12 text-center">
+
+<h1>Inscription </h1>
+        
+        <form method="post" action="traite">
+            
+            <label for="pseudo">pseudo  </label><br>
+            <input type="text" name="pseudo" id="pseudo"><br><br>
+
+            <label for="mot de passe">mot de passe  </label><br>
+            
+            <input type="text" name="mot de passe" id="mot de passe"></textarea><br><br>
+
+            <label for="confirmation du mot de passe">confirmation du mot de passe  </label><br>
+            
+            <input type="text" name="Comfirmation du mot de passe" id="comfirmation du mot de passe"></textarea><br><br>
+            
+                
+            <label for="email">Email  </label><br>
+            <input type="text" name="mot de passe" id="mot de passe"></textarea><br><br>
+
+            <input type="submit" value="Envoyer">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

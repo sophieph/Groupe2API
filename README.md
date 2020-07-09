@@ -9,10 +9,17 @@ Installer les paquets suivants :
 
 - pip install requests
 - pip install flask
-- pip install SQLAlchemy
-- pip install Flask-SQLAlchemy
 - pip install Bcrypt
 
+
+Pour installer sqlite3, il faut : 
+* [SQLite3](https://www.sqlite.org/download.html)
+
+* Suivre l'installation suivante : 
+ [Installation](https://www.tutorialspoint.com/sqlite/sqlite_installation.htm)
+
+* Ouvrir dans le terminal et tapez : 
+- sqlite3 db/pokemon.db ".read db/db.sql"
 
 ## Auteurs
 * **Sophie PHOUANGSY** 
