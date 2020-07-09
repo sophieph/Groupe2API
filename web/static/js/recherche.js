@@ -11,16 +11,16 @@ btnSubmit.click(function (e) {
         type: "POST",
         dataType: 'json',
         success: function (data) {
-            if (empty(data)) {
+            
+            if (data.name != undefined) {
+                name = data.name;
+                window.location.replace("/pokemon/" + name);
+            } else {
                 window.location.replace("/no_pokemon");
             }
-            console.log("type : " + typeof(data));
-            name = data.name;
-            window.location.replace("/pokemon/" + name);
-            
-
+        
         },
-        error: function () {
+        error: function (e) {
             window.location.replace("/no_pokemon");
         }
     });

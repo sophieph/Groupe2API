@@ -13,6 +13,10 @@ class Database:
                 print("Error while creating a sqlite table", error)
         return self.connection
 
+    def deconnection(self):
+        if self.connection is not None:
+            self.connection.close()
+
     def insert_user(self, username, email, password):
         cursor = self.get_connection().cursor()
         cursor.execute(("INSERT INTO user (username, email"
@@ -29,4 +33,4 @@ class Database:
         if id_username is None:
             return None
         else:
-            return id_username[0]    
+            return id_username[0] 
