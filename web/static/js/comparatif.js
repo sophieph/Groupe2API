@@ -60,7 +60,7 @@ $('#pokemon-select-2').on('change', function (e) {
 
 });
 
-
+// Compare les stats en utilisant des couleurs
 $('.comparatif').mouseover( function() {
     
     let hp1 = parseInt($('.hp-1').text());
