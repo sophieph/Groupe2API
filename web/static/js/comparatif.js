@@ -24,6 +24,7 @@ $('#pokemon-select-1').on('change', function (e) {
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
@@ -55,12 +56,13 @@ $('#pokemon-select-2').on('change', function (e) {
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
 });
 
-
+// Compare les stats en utilisant des couleurs
 $('.comparatif').mouseover( function() {
     
     let hp1 = parseInt($('.hp-1').text());
