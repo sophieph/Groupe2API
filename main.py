@@ -1,15 +1,32 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
+from database import db
+from database import User
+import hashlib
+
 import requests
 import json
 
 app = Flask(__name__, static_url_path='', 
             static_folder='web/static',
             template_folder='web/templates')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+db.create_all()
+
 
 @app.route('/')
 def mainpage():
     return render_template('index.html')
+
+# Connexion en tant que membre
+@app.route('/login')
+def login():
+    
+    return render_template('login.html')
 
 #Affiche la liste des 151 premiers Pokemon
 @app.route('/pokemon')
@@ -86,7 +103,7 @@ def get_details_pokemon(name):
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
 
-    if r_pokemon.status_code == 400:
+    if r_pokemon.status_code == 404:
         list = {}
         return list
 

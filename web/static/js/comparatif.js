@@ -24,6 +24,7 @@ $('#pokemon-select-1').on('change', function (e) {
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
@@ -55,6 +56,7 @@ $('#pokemon-select-2').on('change', function (e) {
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
