@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: yellow!important;
+    background-color: white!important;
     font-size: 3em;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -41,7 +41,9 @@ header  {
     background-position: center;
     background-color: transparent;
     color: #fff!important;
+    padding-top: 30px;
 }
+
 
 header .menu {
     border: 1px solid black;
@@ -72,4 +74,16 @@ footer {
     margin-top:10rem;
     padding:0;
     text-align:center;
+}
+
+h1{
+margin-top: 2rem;
+
+}
+
+.search
+{
+
+    padding-left: 650px;
+    
 }

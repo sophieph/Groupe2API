@@ -76,7 +76,7 @@ def pokemon_by_name(name):
     pokemon_description = r_pokemon_description.json()
     pokemon_description = pokemon_description
 
-    return render_template('pokemon_description.html', pokemon=pokemon, pokemon_description=pokemon_description, name=name)
+    return render_template('pokemon_description.html', pokemon=pokemon, pokemon_description=pokemon_description, name=name) 
 
 
 # Affiche le comparatif entre pokémon
@@ -123,14 +123,21 @@ def get_details_pokemon(name):
     if r_pokemon.status_code == 400:
         list = {}
         return list
+    elif r_pokemon.status_code == 404:
+        list = {}
+        return list
 
     pokemon = r_pokemon.json()
     return pokemon
 
 
 # Page d'erreur pour pokemon non trouve
-app.route('/no_pokemon')
+@app.route('/no_pokemon')
 def pokemon_not_found():
+    return render_template('no_pokemon.html')
+
+@app.route('/pokemon_not_found')
+def pokemon_not():
     return render_template('no_pokemon.html')
 
 # Page d'erreur
