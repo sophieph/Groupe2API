@@ -1,16 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
-
 <div class="row">
-    <div class="col-12 description">
-
-        {% if status %}
-            {{ status }}
-        {% endif %}
+    <div class="col-12">
         <h1>Pokemon : {{ pokemon.name }} </h1>
 
         <img src="{{ pokemon.sprites.front_default}}" alt="">
         <img src="https://pokeres.bastionbot.org/images/pokemon/{{ pokemon.id }}.png" alt="">
+        <h1> Description : </h1>
+   
+    {% for l in pokemon_description.flavor_text_entries %}
+        {% if "language" in l %}
+            {% if "version" in l %}
+                {% if l.language.name == "fr" and l.version.name == "black" %}
+                    {{ l.flavor_text }} <br>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
 
     </div>
 </div>
