@@ -120,7 +120,7 @@ def get_details_pokemon(name):
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
 
-    if r_pokemon.status_code == 404:
+    if r_pokemon.status_code == 400:
         list = {}
         return list
 
