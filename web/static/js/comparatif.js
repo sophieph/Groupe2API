@@ -24,6 +24,7 @@ $('#pokemon-select-1').on('change', function (e) {
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
@@ -51,16 +52,17 @@ $('#pokemon-select-2').on('change', function (e) {
                 $('#comparatif-2').append('<i>' + item.stat.name + '</i> : ')
                 $('#comparatif-2').append('<span class="' + item.stat.name + '-2">' +item.base_stat + '</span> <br>')
               });
-              $('#comparatif-2').append('</p>');        
+            $('#comparatif-2').append('</p>');        
         },
         error : function() {
             console.log("ERREUR")
+            window.location.replace("/no_pokemon");
         }
     });
 
 });
 
-
+// Compare les stats en utilisant des couleurs
 $('.comparatif').mouseover( function() {
     
     let hp1 = parseInt($('.hp-1').text());
