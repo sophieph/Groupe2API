@@ -1,7 +1,12 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
+from flask import g
+from flask import request
+from flask import redirect
+from flask import make_response
 import hashlib
+from database import Database
+from flask import url_for
 
 import requests
 import json
@@ -10,6 +15,11 @@ app = Flask(__name__, static_url_path='',
             static_folder='web/static',
             template_folder='web/templates')
 
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        g._database = Database()
+    return g._database
 
 
 @app.route('/')
@@ -20,7 +30,9 @@ def mainpage():
 @app.route('/login')
 def login():
     
-    return render_template('login.html')
+    get_db().insert_user('admin','email', 'password')
+    user = get_db().get_user('admin')
+    return render_template('login.html', user=user)
 
 #Affiche la liste des 151 premiers Pokemon
 @app.route('/pokemon')
