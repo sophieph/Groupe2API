@@ -7,11 +7,6 @@
         
         <h1>Connexion</h1>
 
-        {% if user %}
-            {% for user in user %}
-                {{user}}
-            {% endfor %}
-        {% endif %}
         <form method="POST" action="/login">
             
             <label for="username">Pseudo</label><br>
