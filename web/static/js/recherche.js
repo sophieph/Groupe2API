@@ -11,9 +11,6 @@ btnSubmit.click(function (e) {
         type: "POST",
         dataType: 'json',
         success: function (data) {
-            alert(data);
-            if (data.empty) {
-            }
             name = data.name;
             window.location.replace("/pokemon/" + name);
         },
