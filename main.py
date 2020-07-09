@@ -15,6 +15,7 @@ app = Flask(__name__, static_url_path='',
             static_folder='web/static',
             template_folder='web/templates')
 
+# Connexion à la base de données
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -26,17 +27,41 @@ def get_db():
 def mainpage():
     return render_template('index.html')
 
+
 # Formulaire d'inscription
-@app.route('/formulaire')
+@app.route('/signup')
 def formulaire():
     return render_template('formulaire.html')
+
+# Formulaire d'inscription
+@app.route('/signup', methods=["POST"])
+def request_signup():
+    username = request.form["username"]
+    email = request.form["email"]
+    password = request.form["password"]
+    if username == "" or email == "" or password == "" :
+        return render_template("formulaire.html", error="Remplissez tous les champs")
+    return render_template('formulaire.html')
+
+    db = get_db()
+    r_username = db.get_user(username)
+    if r_username is None:
+        db.insert_user(username, email, password)
+        return render_template('formulaire.html', success="Vous etes inscrits!")
+    else:    
+        return render_template('formulaire.html', existing="Inscrivez un autre pseudo")
+    
 
 # Connexion en tant que membre
 @app.route('/login')
 def login():
-    
-    get_db().insert_user('admin','email', 'password')
+    get_db().insert_user('soso', 'soso1@gmail.com', 'soso')
     user = get_db().get_user('admin')
+    return render_template('login.html', user=user)
+
+# Requete pour se connecter
+@app.route('/login', methods=["POST"])
+def request_login():
     return render_template('login.html', user=user)
 
 #Affiche la liste des 151 premiers Pokemon
@@ -63,8 +88,6 @@ def pokemon_by_name(name):
         r_pokemon = requests.get(url)
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
-
-    pokemon = r_pokemon.json()
 
     url_description = 'https://pokeapi.co/api/v2/pokemon-species/' + name
     try:
@@ -98,19 +121,6 @@ def classement_pokemon():
 
     return render_template('classement.html')
 
-# Retourne la recherche   
-@app.route('/pokemon/<name>')
-def search_pokemon(name):
-    url = 'https://pokeapi.co/api/v2/pokemon/' + name
-    try:
-        r_pokemon = requests.get(url)
-    except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
-
-    status = r_pokemon.status_code
-    pokemon = r_pokemon.json()
-    return render_template('pokemon_description.html', pokemon=pokemon, name=name, status=status)    
-
 # Retourne l'API du pokemon avec la methode AJAX
 @app.route('/pokemon/details/<name>', methods=["POST"])
 def get_details_pokemon(name):
@@ -130,15 +140,11 @@ def get_details_pokemon(name):
     pokemon = r_pokemon.json()
     return pokemon
 
-
 # Page d'erreur pour pokemon non trouve
 @app.route('/no_pokemon')
 def pokemon_not_found():
     return render_template('no_pokemon.html')
 
-@app.route('/pokemon_not_found')
-def pokemon_not():
-    return render_template('no_pokemon.html')
 
 # Page d'erreur
 @app.errorhandler(404)

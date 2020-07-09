@@ -6,24 +6,27 @@
 
 <h1>Inscription </h1>
         
-        <form method="post" action="traite">
+        <form method="POST" action="/signup">
             
-            <label for="pseudo">pseudo  </label><br>
-            <input type="text" name="pseudo" id="pseudo"><br><br>
+            <label for="username">Pseudo  </label><br>
+            <input type="text" name="username" id="username"><br><br>
 
-            <label for="mot de passe">mot de passe  </label><br>
-            
-            <input type="text" name="mot de passe" id="mot de passe"></textarea><br><br>
-
-            <label for="confirmation du mot de passe">confirmation du mot de passe  </label><br>
-            
-            <input type="text" name="Comfirmation du mot de passe" id="comfirmation du mot de passe"></textarea><br><br>
-            
-                
             <label for="email">Email  </label><br>
-            <input type="text" name="mot de passe" id="mot de passe"></textarea><br><br>
+            <input type="text" name="email" id="email"><br><br>
+
+            <label for="password">Mot de passe </label><br>
+            <input type="text" name="password" id="password"><br><br>
 
             <input type="submit" value="Envoyer">
+
+            {% if error %}
+                <p style="color:#F03; font-size:10px;">{{ error }}</p>
+            {% elif existing %}
+                <p style="color:#F03; font-size:10px;">{{ existing }}</p>    
+            {% elif success %}
+                <p style="color:green; font-size:10px;">{{ success }}</p>    
+        
+            {% endif %}
         </form>
 
     </div>
