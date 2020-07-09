@@ -22,6 +22,11 @@ def get_db():
         g._database = Database()
     return g._database
 
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.deconnection()
 
 @app.route('/')
 def mainpage():
@@ -41,28 +46,55 @@ def request_signup():
     password = request.form["password"]
     if username == "" or email == "" or password == "" :
         return render_template("formulaire.html", error="Remplissez tous les champs")
-    return render_template('formulaire.html')
 
     db = get_db()
     r_username = db.get_user(username)
     if r_username is None:
         db.insert_user(username, email, password)
         return render_template('formulaire.html', success="Vous etes inscrits!")
-    else:    
+    else:
         return render_template('formulaire.html', existing="Inscrivez un autre pseudo")
-    
 
 # Connexion en tant que membre
 @app.route('/login')
 def login():
-    get_db().insert_user('soso', 'soso1@gmail.com', 'soso')
-    user = get_db().get_user('admin')
-    return render_template('login.html', user=user)
+    return render_template('login.html')
 
 # Requete pour se connecter
 @app.route('/login', methods=["POST"])
 def request_login():
-    return render_template('login.html', user=user)
+    username = request.form["username"]
+    password = request.form["password"]
+    if username == "" or password == "" :
+        return render_template("login.html", error="Remplissez tous les champs")
+
+    db = get_db()
+    r_username = db.get_user(username)
+    if r_username is None:
+        return render_template('login.html', no_account="Inscrivez-vous d'abord")
+
+    response = make_response(redirect(url_for('account')))
+    response.set_cookie('username', username)
+    return response
+
+# Deconnexion
+@app.route('/offline')
+def offline():
+    response = make_response(redirect(url_for('mainpage')))
+    response.set_cookie('username', expires=0)
+    return response
+
+
+# Acceder a mon compte 
+@app.route('/account')
+def account():
+    username = request.cookies.get('username')
+    if username is None:
+        response = make_response(
+            redirect(url_for('mainpage',
+                             no_username='no username')))
+        return response
+    return render_template('compte.html', username=username)
 
 #Affiche la liste des 151 premiers Pokemon
 @app.route('/pokemon')

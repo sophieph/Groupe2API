@@ -6,6 +6,17 @@
 
 <h1>Inscription </h1>
         
+        {% if username %}
+            {{ username }}
+        {% endif %}
+
+        {% if password %}
+            {{ password }}
+        {% endif %}
+
+        {% if email %}
+            {{ email }}
+        {% endif %}
         <form method="POST" action="/signup">
             
             <label for="username">Pseudo  </label><br>
