@@ -128,17 +128,15 @@ def pokemon():
     # Liste des 151 premiers pokemon
     try:
         r_pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
-    except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
-        return page_not_found(e)
+        list_pokemon = r_pokemon.json()
+        pokemon = list_pokemon['results']
 
-    list_pokemon = r_pokemon.json()
-    pokemon = list_pokemon['results']
+        return render_template('pokemon.html', pokemon=pokemon, username=username)
+    except :
+        # raise SystemExit()
+        return redirect((url_for('pokemon_not_found')))
 
-    if username is None:
-        return render_template('pokemon.html', pokemon=pokemon)
     
-    return render_template('pokemon.html', pokemon=pokemon, username=username, favorite='Ajoutez aux favoris!')
 
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
