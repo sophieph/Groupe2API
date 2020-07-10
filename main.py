@@ -163,9 +163,18 @@ def pokemon_by_name(name):
     if username is None:
         return render_template('pokemon_description.html', pokemon=pokemon, pokemon_description=pokemon_description, name=name) 
     
+    db = get_db()
+    id_user = db.get_user_id(username)
+    r_favorites = db.get_pokemon(name)
+
+    if r_favorites is None:
+        return render_template('pokemon_description.html', pokemon=pokemon, 
+                            pokemon_description=pokemon_description, name=name,
+                            username=username, favorite='Ajouter aux favoris!')
+    
     return render_template('pokemon_description.html', pokemon=pokemon, 
                             pokemon_description=pokemon_description, name=name,
-                            username=username, favorite='Ajoutez aux favoris!') 
+                            username=username, delete_favorite='Supprimer des favoris') 
 
 # Ajoute un pokemon en favoris    
 @app.route('/favoris/<name>')
@@ -184,10 +193,6 @@ def favoris(name):
     response = make_response(redirect(url_for('account')))
     response.set_cookie('username', username)
     return response
-    
-
-
-
 
 
 # Affiche le comparatif entre pokémon
@@ -210,7 +215,7 @@ def compare_pokemon():
 def classement_pokemon():
     username = request.cookies.get('username')
 
-    return render_template('classement.html', username)
+    return render_template('classement.html', username=username)
 
 # Retourne l'API du pokemon avec la methode AJAX
 @app.route('/pokemon/details/<name>', methods=["POST"])
