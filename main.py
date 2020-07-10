@@ -184,10 +184,6 @@ def favoris(name):
     response = make_response(redirect(url_for('account')))
     response.set_cookie('username', username)
     return response
-    
-
-
-
 
 
 # Affiche le comparatif entre pokémon
@@ -210,7 +206,7 @@ def compare_pokemon():
 def classement_pokemon():
     username = request.cookies.get('username')
 
-    return render_template('classement.html', username)
+    return render_template('classement.html', username=username)
 
 # Retourne l'API du pokemon avec la methode AJAX
 @app.route('/pokemon/details/<name>', methods=["POST"])
