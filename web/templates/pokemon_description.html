@@ -5,10 +5,18 @@
         <h1>Pokemon : {{ pokemon.name }} </h1>
         {% if favorite %}
         <p>
-            <a href="/favoris/{{ pokemon.name }}"><i class="fa fa-star" aria-hidden="true"></i> Ajoutez aux favoris</a>
+            <a href="/favoris/{{ pokemon.name }}"><i class="fa fa-star" aria-hidden="true"></i> {{ favorite }}</a>
             <b id="favorite"> </b>
         </p>
         {% endif %}
+
+        {% if delete_favorite %}
+        <p>
+            <a href=""><i class="fa fa-star" aria-hidden="true"></i> {{ delete_favorite }}</a>
+            <b id="favorite"> </b>
+        </p>
+        {% endif %}
+
         <img src="{{ pokemon.sprites.front_default}}" alt="">
         <img src="https://pokeres.bastionbot.org/images/pokemon/{{ pokemon.id }}.png" alt="">
         <h1> Description : </h1>

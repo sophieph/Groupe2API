@@ -163,9 +163,18 @@ def pokemon_by_name(name):
     if username is None:
         return render_template('pokemon_description.html', pokemon=pokemon, pokemon_description=pokemon_description, name=name) 
     
+    db = get_db()
+    id_user = db.get_user_id(username)
+    r_favorites = db.get_pokemon(name)
+
+    if r_favorites is None:
+        return render_template('pokemon_description.html', pokemon=pokemon, 
+                            pokemon_description=pokemon_description, name=name,
+                            username=username, favorite='Ajouter aux favoris!')
+    
     return render_template('pokemon_description.html', pokemon=pokemon, 
                             pokemon_description=pokemon_description, name=name,
-                            username=username, favorite='Ajoutez aux favoris!') 
+                            username=username, delete_favorite='Supprimer des favoris') 
 
 # Ajoute un pokemon en favoris    
 @app.route('/favoris/<name>')
