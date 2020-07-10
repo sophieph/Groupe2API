@@ -202,10 +202,6 @@ def delete_favoris(name):
 
     response = make_response(redirect(url_for('pokemon_by_name', name=name)))
     return response
-    
-    # response = make_response(redirect(url_for('account')))
-    # response.set_cookie('username', username)
-    # return response
 
 # Affiche le comparatif entre pokémon
 @app.route('/comparatif')
