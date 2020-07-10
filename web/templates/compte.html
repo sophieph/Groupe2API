@@ -10,9 +10,10 @@
             {{ username }}
         {% endif %}
 
+        <h2>Mes pokémons préférés</h2>
         {% if list %}
             {% for pokemon in list %}
-                {{ pokemon }}
+                <p><i class="fa fa-star" aria-hidden="true"></i> {{ pokemon }} <br></p>
             {% endfor %}
         {% endif %}
     </div>

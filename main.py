@@ -50,8 +50,10 @@ def request_signup():
     password_1 = request.form["password_1"]
     if username == "" or email == "" or password == "" :
         return render_template("formulaire.html", error="Remplissez tous les champs", username=username)
+
     if password != password_1: 
-        return render_template("formulaire.html", error="mot de passe différent")
+        return render_template("formulaire.html", error="Mot de passe différent")
+
     db = get_db()
     r_username = db.get_user(username)
     if r_username is None:
