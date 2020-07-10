@@ -18,7 +18,7 @@ Pour installer sqlite3, il faut :
 * Suivre l'installation suivante : 
  [Installation](https://www.tutorialspoint.com/sqlite/sqlite_installation.htm)
 
-* Ouvrir dans le terminal et tapez : 
+* Ouvrir dans le terminal et tapez pour rentrer la creation de table : 
 - sqlite3 db/pokemon.db ".read db/db.sql"
 
 ## Auteurs
