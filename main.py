@@ -136,7 +136,6 @@ def pokemon():
         # raise SystemExit()
         return redirect((url_for('pokemon_not_found')))
 
-    
 
 # Affiche la description du pokemon    
 @app.route('/pokemon/<name>')
