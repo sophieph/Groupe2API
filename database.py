@@ -65,6 +65,13 @@ class Database:
         else:
             return id_pokemon[0]
 
+    def delete_pokemon(self, pokemon, user_id):
+        cursor = self.get_connection().cursor()
+        cursor.execute(("DELETE FROM favourite WHERE pokemon = ? AND "
+                       "user_id = ?"),
+                       (pokemon, user_id,))
+        self.get_connection().commit()
+
     def get_all_pokemon(self, user_id):
         cursor = self.get_connection().cursor()
         cursor.execute(("SELECT pokemon "

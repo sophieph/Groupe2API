@@ -28,6 +28,7 @@ def close_connection(exception):
     if db is not None:
         db.deconnection()
 
+# Accueil de la page web
 @app.route('/')
 def mainpage():
     username = request.cookies.get('username')
@@ -101,7 +102,6 @@ def offline():
     response = make_response(redirect(url_for('mainpage')))
     response.set_cookie('username', expires=0)
     return response
-
 
 # Acceder au compte 
 @app.route('/account')
@@ -194,6 +194,21 @@ def favoris(name):
     response.set_cookie('username', username)
     return response
 
+# Supprime un pokemon des favoris
+@app.route('/delete/favoris/<name>')
+def delete_favoris(name):
+    username = request.cookies.get('username')
+
+    db = get_db()
+    id_user = db.get_user_id(username)
+    db.delete_pokemon(name, id_user)
+
+    response = make_response(redirect(url_for('pokemon_by_name', name=name)))
+    return response
+    
+    # response = make_response(redirect(url_for('account')))
+    # response.set_cookie('username', username)
+    # return response
 
 # Affiche le comparatif entre pokémon
 @app.route('/comparatif')

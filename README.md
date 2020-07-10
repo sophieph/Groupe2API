@@ -27,6 +27,7 @@ Pour installer sqlite3, il faut :
 * Envoyer un mail à l’inscription à l’aide du smtp. 
 * Traduction des noms Pokémon (en français) 
 * Affichage d’un pop-up qui nous indique le Pokémon le plus fort 
+* Hasher les mots de passes
 
 
 ## Auteurs
