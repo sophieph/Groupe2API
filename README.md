@@ -28,6 +28,7 @@ Pour installer sqlite3, il faut :
 * Traduction des noms Pokémon (en français) 
 * Affichage d’un pop-up qui nous indique le Pokémon le plus fort 
 * Hasher les mots de passes
+* Mettre en norme les fichiers python avec pep 
 
 
 ## Auteurs
