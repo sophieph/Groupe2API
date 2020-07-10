@@ -12,7 +12,7 @@ Installer les paquets suivants :
 - pip install Bcrypt
 
 
-Pour installer sqlite3, il faut : 
+Si vous désirez avoir sqlite3, il faut : 
 * [SQLite3](https://www.sqlite.org/download.html)
 
 * Suivre l'installation suivante : 
@@ -28,7 +28,7 @@ Pour installer sqlite3, il faut :
 * Traduction des noms Pokémon (en français) 
 * Affichage d’un pop-up qui nous indique le Pokémon le plus fort 
 * Hasher les mots de passes
-* Mettre en norme les fichiers python avec pep 
+* Mettre en norme les fichiers python avec pycodestyle
 
 
 ## Auteurs
