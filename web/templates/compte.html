@@ -6,8 +6,15 @@
         
         <h1>Compte</h1> 
 
-        {{ username }}
+        {% if username %}
+            {{ username }}
+        {% endif %}
 
+        {% if list %}
+            {% for pokemon in list %}
+                {{ pokemon }}
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
 

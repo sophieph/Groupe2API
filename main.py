@@ -47,9 +47,11 @@ def request_signup():
     username = request.form["username"]
     email = request.form["email"]
     password = request.form["password"]
+    password_1 = request.form["password_1"]
     if username == "" or email == "" or password == "" :
         return render_template("formulaire.html", error="Remplissez tous les champs", username=username)
-
+    if password != password_1: 
+        return render_template("formulaire.html", error="mot de passe différent")
     db = get_db()
     r_username = db.get_user(username)
     if r_username is None:
@@ -99,7 +101,7 @@ def offline():
     return response
 
 
-# Acceder a mon compte 
+# Acceder au compte 
 @app.route('/account')
 def account():
     username = request.cookies.get('username')
@@ -108,7 +110,13 @@ def account():
             redirect(url_for('mainpage',
                              no_username='no username')))
         return response
-    return render_template('compte.html', username=username)
+
+    db = get_db()
+    id_user = db.get_user_id(username)
+    list_favorites = db.get_all_pokemon(id_user)
+    print(list_favorites)
+
+    return render_template('compte.html', username=username, list=list_favorites)
 
 #Affiche la liste des 151 premiers Pokemon
 @app.route('/pokemon')
@@ -156,6 +164,27 @@ def pokemon_by_name(name):
     return render_template('pokemon_description.html', pokemon=pokemon, 
                             pokemon_description=pokemon_description, name=name,
                             username=username, favorite='Ajoutez aux favoris!') 
+
+# Ajoute un pokemon en favoris    
+@app.route('/favoris/<name>')
+def favoris(name):
+    username = request.cookies.get('username')
+
+    db = get_db()
+    id_user = db.get_user_id(username)
+    r_favorites = db.get_pokemon(name)
+
+    if r_favorites is None:
+        db.insert_favorites(name, id_user)
+        response = make_response(redirect(url_for('pokemon_by_name', name=name)))
+        return response
+    
+    response = make_response(redirect(url_for('account')))
+    response.set_cookie('username', username)
+    return response
+    
+
+
 
 
 
@@ -206,7 +235,6 @@ def pokemon_not_found():
     username = request.cookies.get('username')
 
     return render_template('no_pokemon.html', username=username)
-
 
 # Page d'erreur
 @app.errorhandler(404)
