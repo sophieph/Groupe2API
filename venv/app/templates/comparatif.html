@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+{{ super() }}
+<h1>Comparatif des pokémons</h1>
+
+<div class="row">
+    <div class="col-6 comparatif">
+
+            <label for="pokemon-select-1">Choisissez un pokémon :</label>
+            <select class="form-control" name="pokemon-1" id="pokemon-select-1">
+                <option value="-" selected="selected">-</option>
+                {% for pokemon in pokemon_list %}
+                <option value="{{ pokemon.name }}">{{pokemon.name}}</option>
+                {% endfor %}
+            </select>
+
+            <div id="comparatif-1" class="classement text-left">
+
+            </div>
+    </div>
+    <div class="col-6 comparatif" >
+        
+        <label for="pokemon-select-1">Choisissez un pokémon :</label>
+        <select class="form-control" name="pokemon-2" id="pokemon-select-2">
+            <option value="-" selected="selected">-</option>
+            {% for pokemon in pokemon_list %}
+            <option value="{{ pokemon.name }}">{{pokemon.name}}</option>
+            {% endfor %}
+            
+        </select>
+        
+        <div id="comparatif-2" class="classement text-left">
+
+        </div>   
+    
+    </div>
+</div>
+
+
+
+{% endblock %}

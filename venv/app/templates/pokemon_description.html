@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>Pokemon : {{ pokemon.name }} </h1>
+        {% if favorite %}
+        <p>
+            <a href="/favoris/{{ pokemon.name }}"><i class="fa fa-star" aria-hidden="true"></i> {{ favorite }}</a>
+            <b id="favorite"> </b>
+        </p>
+        {% endif %}
+
+        {% if delete_favorite %}
+        <p>
+            <a href="/delete/favoris/{{ pokemon.name }}"><i class="fa fa-star" aria-hidden="true"></i> {{ delete_favorite }}</a>
+            <b id="favorite"> </b>
+        </p>
+        {% endif %}
+
+        <img src="{{ pokemon.sprites.front_default}}" alt="">
+        <img src="https://pokeres.bastionbot.org/images/pokemon/{{ pokemon.id }}.png" alt="">
+        <h1> Description : </h1>
+   
+    {% for l in pokemon_description.flavor_text_entries %}
+        {% if "language" in l %}
+            {% if "version" in l %}
+                {% if l.language.name == "fr" and l.version.name == "black" %}
+                    {{ l.flavor_text }} <br>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+
+    </div>
+</div>
+{% endblock %}

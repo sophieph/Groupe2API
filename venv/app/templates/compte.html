@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12 text-center">
+        
+        <h1>Compte</h1> 
+
+        {% if username %}
+            {{ username }}
+        {% endif %}
+
+        <h2>Mes pokémons préférés</h2>
+        {% if list %}
+            {% for pokemon in list %}
+                <p><i class="fa fa-star" aria-hidden="true"></i> {{ pokemon }} <br></p>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

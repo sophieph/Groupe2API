@@ -29,10 +29,10 @@ def close_connection(exception):
         db.deconnection()
 
 # Accueil de la page web
-@app.route('/')
-def mainpage():
-    username = request.cookies.get('username')
-    return render_template('index.html', username=username)
+# @app.route('/')
+# def mainpage():
+    # username = request.cookies.get('username')
+    # return render_template('index.html', username=username)
 
 
 # Formulaire d'inscription
