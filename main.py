@@ -11,6 +11,8 @@ from flask import url_for
 import requests
 import json
 
+from tests.test_favoris import test_add_fav
+
 app = Flask(__name__, static_url_path='', 
             static_folder='web/static',
             template_folder='web/templates')
@@ -176,6 +178,8 @@ def pokemon_by_name(name):
 # Ajoute un pokemon en favoris    
 @app.route('/favoris/<name>')
 def favoris(name):
+    test_add_fav(name)
+
     username = request.cookies.get('username')
 
     db = get_db()
@@ -193,11 +197,11 @@ def favoris(name):
 
 # Supprime un pokemon des favoris
 @app.route('/delete/favoris/<name>')
-def delete_favoris(name):
+def delete_favoris(name): #test user usernmae
     username = request.cookies.get('username')
 
     db = get_db()
-    id_user = db.get_user_id(username)
+    id_user = db.get_user_id(username) 
     db.delete_pokemon(name, id_user)
 
     response = make_response(redirect(url_for('pokemon_by_name', name=name)))
@@ -219,6 +223,7 @@ def compare_pokemon():
     return render_template('comparatif.html', pokemon_list=pokemon,username=username)
 
 # Affiche le classement des pokémons selon leur stat
+
 @app.route('/classement')
 def classement_pokemon():
     username = request.cookies.get('username')
