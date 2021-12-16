@@ -50,18 +50,18 @@ def request_signup():
     password = request.form["password"]
     password_1 = request.form["password_1"]
     if username == "" or email == "" or password == "" :
-        return render_template("formulaire.html", error="Remplissez tous les champs", username=username)
+        return render_template("formulaire.html", error="Remplissez tous les champs", username=username), 400
 
     if password != password_1: 
-        return render_template("formulaire.html", error="Mot de passe différent")
+        return render_template("formulaire.html", error="Mot de passe différent"), 400
 
     db = get_db()
     r_username = db.get_user(username)
     if r_username is None:
         db.insert_user(username, email, password)
-        return render_template('formulaire.html', success="Vous etes inscrits!", username=username)
+        return render_template('formulaire.html', success="Vous etes inscrits!", username=username), 200
     else:
-        return render_template('formulaire.html', existing="Inscrivez un autre pseudo", username=username)
+        return render_template('formulaire.html', existing="Inscrivez un autre pseudo", username=username), 400
 
 # Connexion en tant que membre
 @app.route('/login')
@@ -85,12 +85,12 @@ def request_login():
     username = request.form["username"]
     password = request.form["password"]
     if username == "" or password == "" :
-        return render_template("login.html", error="Remplissez tous les champs")
+        return render_template("login.html", error="Remplissez tous les champs"), 403
 
     db = get_db()
     r_username = db.get_user(username)
     if r_username is None:
-        return render_template('login.html', no_account="Inscrivez-vous d'abord")
+        return render_template('login.html', no_account="Inscrivez-vous d'abord"), 403
 
     response = make_response(redirect(url_for('account')))
     response.set_cookie('username', username)
@@ -145,13 +145,14 @@ def pokemon_by_name(name):
     try:
         r_pokemon = requests.get(url)
     except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
+        # raise SystemExit(e)
+        return redirect((url_for('pokemon_not_found')))
 
     url_description = 'https://pokeapi.co/api/v2/pokemon-species/' + name
     try:
         r_pokemon_description = requests.get(url_description)
     except requests.exceptions.RequestException as e:
-        raise SystemExit(e)
+        return redirect((url_for('pokemon_not_found')))
 
     pokemon = r_pokemon.json()
     pokemon_description = r_pokemon_description.json()
@@ -177,6 +178,9 @@ def pokemon_by_name(name):
 @app.route('/favoris/<name>')
 def favoris(name):
     username = request.cookies.get('username')
+    if not username:
+        response = make_response(redirect(url_for('pokemon_by_name', name=name)))
+        return response, 500
 
     db = get_db()
     id_user = db.get_user_id(username)
@@ -195,6 +199,9 @@ def favoris(name):
 @app.route('/delete/favoris/<name>')
 def delete_favoris(name):
     username = request.cookies.get('username')
+    if not username:
+        response = make_response(redirect(url_for('pokemon_by_name', name=name)))
+        return response, 500
 
     db = get_db()
     id_user = db.get_user_id(username)
@@ -249,7 +256,7 @@ def get_details_pokemon(name):
 def pokemon_not_found():
     username = request.cookies.get('username')
 
-    return render_template('no_pokemon.html', username=username)
+    return render_template('no_pokemon.html', username=username), 404
 
 # Page d'erreur
 @app.errorhandler(404)
@@ -257,6 +264,13 @@ def page_not_found(e):
     username = request.cookies.get('username')
 
     return render_template('404.html', username=username), 404
+
+# Page d'erreur
+@app.errorhandler(500)
+def page_not_found_bad_request(e):
+    username = request.cookies.get('username')
+
+    return render_template('404.html', username=username), 500
 
 
 if __name__ == "__main__":
