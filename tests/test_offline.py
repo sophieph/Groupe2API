@@ -52,10 +52,10 @@ def test_account_without_login():
 
 def test_account_with_login():
     test_client = app.test_client()
-    response = test_client.get('/account')
     test_client.set_cookie('/', 'username', 'admin')
-    assert response.status_code == 302
-#   assert b'Compte' in response.data
+    response = test_client.get('/account')
+    # assert response.status_code == 302
+    assert b'Compte' in response.data
 
 
 
