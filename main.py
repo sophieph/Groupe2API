@@ -121,20 +121,20 @@ def account():
     return render_template('compte.html', username=username, list=list_favorites)
 
 #Affiche la liste des 151 premiers Pokemon
-@app.route('/pokemon')
-def pokemon():
-    username = request.cookies.get('username')
+# @app.route('/pokemon')
+# def pokemon():
+#     username = request.cookies.get('username')
 
-    # Liste des 151 premiers pokemon
-    try:
-        r_pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
-        list_pokemon = r_pokemon.json()
-        pokemon = list_pokemon['results']
+#     # Liste des 151 premiers pokemon
+#     try:
+#         r_pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
+#         list_pokemon = r_pokemon.json()
+#         pokemon = list_pokemon['results']
 
-        return render_template('pokemon.html', pokemon=pokemon, username=username)
-    except :
-        # raise SystemExit()
-        return redirect((url_for('pokemon_not_found')))
+#         return render_template('pokemon.html', pokemon=pokemon, username=username)
+#     except :
+#         # raise SystemExit()
+#         return redirect((url_for('pokemon_not_found')))
 
 
 # Affiche la description du pokemon    
