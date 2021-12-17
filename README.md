@@ -23,11 +23,11 @@ Si vous désirez avoir sqlite3, il faut :
 
 ### Test unitaires :
 
-![Le taux de couverture](/Groupe2API/web/static/img/couverture.png)
+![Capture](/image/image.png)
 
 <br />
 
-![le Rapport](/Groupe2API/web/static/img/raport.png)
+![le Rapport](/image/raport.png)
 
 ### TODO list 
 * Classement  
