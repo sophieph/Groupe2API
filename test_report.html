@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>test_report.html</h1>
-    <p>Report generated on 16-Dec-2021 at 10:39:39 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 17-Dec-2021 at 10:00:30 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -445,8 +445,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.2</td></tr></table>
     <h2>Summary</h2>
-    <p>21 tests ran in 0.76 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">21 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>29 tests ran in 3.93 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">29 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -460,26 +460,53 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_logout_without_login</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_login</td>
+          <td class="col-name">tests/test_error.py::test_404_error_page</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_error.py::test_no_pokemon</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_logout_without_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_logout_with_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_login</td>
+          <td class="col-duration">0.02</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>None
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_login_param[admin-adminadmin]</td>
+          <td class="col-name">tests/test_log.py::test_login_param[admin-adminadmin]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -489,144 +516,18 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_login_param[wrong-wrong]</td>
+          <td class="col-name">tests/test_log.py::test_login_param[kaya-nerd]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_login_failure</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_account_without_login</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_account_with_login</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_pokemon_not_found</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_pokemon_found_comparatif</td>
-          <td class="col-duration">0.06</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_pokemon_list</td>
-          <td class="col-duration">0.04</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_pokemon_detail</td>
-          <td class="col-duration">0.10</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_comparatif</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_404_error_page</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_no_pokemon</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_account</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_index</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_pokemon</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_signup</td>
-          <td class="col-duration">0.03</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>&lt;Flask &#x27;main&#x27;&gt;
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>None
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_empty_username_signup</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-name">tests/test_log.py::test_login_param_failure[adminnn-adminadmin]</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -634,8 +535,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_empty_email_signup</td>
-          <td class="col-duration">0.07</td>
+          <td class="col-name">tests/test_log.py::test_login_param_failure[wrong-wrong]</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -643,9 +544,201 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_offline.py::test_empty_password_signup</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-name">tests/test_log.py::test_login_failure</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_account_without_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_account_with_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>None
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_account_with_param</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_signup</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_empty_username_signup</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_empty_email_signup</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_empty_password_signup</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_favoris_with_account</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_favoris_without_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_delete_favoris_with_account</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_log.py::test_delete_favoris_without_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_page.py::test_index</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_page.py::test_comparatif</td>
+          <td class="col-duration">0.13</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_page.py::test_classement</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_pokemon.py::test_pokemon_not_found</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_pokemon.py::test_pokemon_found_comparatif</td>
+          <td class="col-duration">0.05</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_pokemon.py::test_pokemon_list</td>
+          <td class="col-duration">0.05</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_pokemon.py::test_pokemon_detail</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_pokemon.py::test_pokemon_detail_not_found</td>
+          <td class="col-duration">3.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>ERROR    main:app.py:1457 Exception on /pokemon/charizarddd [GET]
+Traceback (most recent call last):
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\site-packages\flask\app.py&quot;, line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\site-packages\flask\app.py&quot;, line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\site-packages\flask\app.py&quot;, line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\site-packages\flask\app.py&quot;, line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File &quot;C:\Users\benpr\Documents\IPSSI\test_unitaire\Groupe2API\main.py&quot;, line 157, in pokemon_by_name
+    pokemon = r_pokemon.json()
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\site-packages\requests\models.py&quot;, line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\json\__init__.py&quot;, line 346, in loads
+    return _default_decoder.decode(s)
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\json\decoder.py&quot;, line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File &quot;c:\users\benpr\appdata\local\programs\python\python39\lib\json\decoder.py&quot;, line 355, in raw_decode
+    raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)<br/></div></td></tr></tbody></table></body></html>
