@@ -21,6 +21,13 @@ Si vous désirez avoir sqlite3, il faut :
 * Ouvrir dans le terminal et tapez pour rentrer la creation de table : 
 - sqlite3 db/pokemon.db ".read db/db.sql"
 
+### Test unitaires :
+
+![Le taux de couverture](/Groupe2API/web/static/img/couverture.png)
+
+<br />
+
+![le Rapport](/Groupe2API/web/static/img/raport.png)
 
 ### TODO list 
 * Classement  
@@ -33,7 +40,9 @@ Si vous désirez avoir sqlite3, il faut :
 
 ## Auteurs
 * **Sophie PHOUANGSY** 
+* **Salim BAMBA**
+* **Chaimae El Ghoubachi**
+* **Benjamin Pradon**
 * **Nassim AKIF**
-* **Alou AG RHISSA**
 
 
